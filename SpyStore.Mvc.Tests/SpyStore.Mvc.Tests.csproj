@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpyStore.Models\SpyStore.Models.csproj" />
+    <ProjectReference Include="..\SpyStore.Mvc\SpyStore.Mvc.csproj" />
+  </ItemGroup>
+</Project>
