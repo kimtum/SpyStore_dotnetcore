@@ -11,6 +11,7 @@ namespace SpyStore.Models.Entities
     {
         [ForeignKey(nameof(OrderId))]
         public Order OrderNavigation { get; set; }
+
         [ForeignKey(nameof(ProductId))]
         public Product ProductNavigation { get; set; }
     }

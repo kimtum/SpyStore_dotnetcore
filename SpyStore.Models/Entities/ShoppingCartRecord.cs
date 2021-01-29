@@ -13,6 +13,7 @@ namespace SpyStore.Models.Entities
         [JsonIgnore]
         [ForeignKey(nameof(CustomerId))]
         public Customer CustomerNavigation { get; set; }
+
         [JsonIgnore]
         [ForeignKey(nameof(ProductId))]
         public Product ProductNavigation { get; set; }

@@ -35,6 +35,7 @@ namespace SpyStore.Dal.EfStructures
             {
                 entity.Property(e => e.OrderDate).HasColumnType("datetime").HasDefaultValueSql("getdate()");
                 entity.Property(e => e.ShipDate).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+                entity.Property(e => e.OrderTotal).HasColumnType("money").HasComputedColumnSql("Store.GetOrderTotal([Id])");
             });
 
             modelBuilder.Entity<Order>()
@@ -43,6 +44,7 @@ namespace SpyStore.Dal.EfStructures
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.Property(e => e.UnitCost).HasColumnType("money");
+                entity.Property(e => e.LineItemTotal).HasColumnType("money").HasComputedColumnSql("[Quantity]*[UnitCost]");
             });
 
             modelBuilder.Entity<Product>(entity =>

@@ -12,6 +12,7 @@ namespace SpyStore.Models.Entities
         [ForeignKey(nameof(CustomerId))]
         public Customer CustomerNavigation { get; set; }
 
+
         [InverseProperty(nameof(OrderDetail.OrderNavigation))]
         public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
