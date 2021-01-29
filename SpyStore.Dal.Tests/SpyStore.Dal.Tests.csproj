@@ -3,6 +3,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>    
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SpyStore.Dal\SpyStore.Dal.csproj" />
     <ProjectReference Include="..\SpyStore.Models\SpyStore.Models.csproj" />
   </ItemGroup>
