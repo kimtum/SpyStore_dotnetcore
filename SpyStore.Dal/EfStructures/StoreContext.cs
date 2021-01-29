@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using SpyStore.Models.Entities;
 using SpyStore.Models.Entities.Base;
-using SpyStore.Models;
+using SpyStore.Models.ViewModels;
 
 namespace SpyStore.Dal.EfStructures
 {
@@ -23,6 +23,15 @@ namespace SpyStore.Dal.EfStructures
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCartRecord> ShoppingCartRecords { get; set; }
+
+        public DbQuery<CartRecordWithProductInfo> CartRecordWithProductInfos { get; set; }
+        public DbQuery<OrderDetailWithProductInfo> OrderDetailWithProductInfos{ get; set; }
+
+    [DbFunction("GetOrderTotal", Schema = "Store")]
+        public static int GetOrderTotal(int orderId)
+        {
+            throw new Exception();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
@@ -74,6 +83,12 @@ namespace SpyStore.Dal.EfStructures
 
             modelBuilder.Entity<ShoppingCartRecord>()
                 .HasQueryFilter(x => x.CustomerId == CustomerId);
+
+            modelBuilder.Query<CartRecordWithProductInfo>()
+                .ToView("CartRecordWithProductInfo", "Store");
+
+            modelBuilder.Query<OrderDetailWithProductInfo>()
+                .ToView("OrderDetailWithProductInfo", "Store");
         }
             
     }
