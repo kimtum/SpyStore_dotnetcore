@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SpyStore.Models.ViewModels
 {
-    public class OrderDetailWithProductInfo : OrderBase
+    public class OrderDetailWithProductInfo : OrderDetailBase
     {
         public new int Id { get; set; }
 
