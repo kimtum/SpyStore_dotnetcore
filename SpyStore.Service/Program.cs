@@ -21,4 +21,5 @@ namespace SpyStore.Service
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
+
 }

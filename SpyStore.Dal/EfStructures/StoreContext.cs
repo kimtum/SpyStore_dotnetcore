@@ -27,7 +27,7 @@ namespace SpyStore.Dal.EfStructures
         public DbQuery<CartRecordWithProductInfo> CartRecordWithProductInfos { get; set; }
         public DbQuery<OrderDetailWithProductInfo> OrderDetailWithProductInfos{ get; set; }
 
-    [DbFunction("GetOrderTotal", Schema = "Store")]
+        [DbFunction("GetOrderTotal", Schema = "Store")]
         public static int GetOrderTotal(int orderId)
         {
             throw new Exception();

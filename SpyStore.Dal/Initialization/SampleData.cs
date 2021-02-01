@@ -62,6 +62,56 @@ namespace SpyStore.Dal.Initialization
                 }
             };
 
+        //public static IEnumerable<Customer> GetAllCustomerRecords(IList<Product> products) =>
+        //    new List<Customer>
+        //    {
+        //        new Customer()
+        //        {
+        //            EmailAddress = "spy@secrets.com",
+        //            Password = "Foo",
+        //            FullName = "Super Spy",
+        //            Orders = new List<Order>
+        //            {
+        //                new Order()
+        //                {
+        //                    OrderDate = DateTime.Now.Subtract(new TimeSpan(20, 0, 0, 0)),
+        //                    ShipDate = DateTime.Now.Subtract(new TimeSpan(5, 0, 0, 0)),
+        //                    OrderDetails = new List<OrderDetail>
+        //                    {
+        //                        new OrderDetail()
+        //                        {
+        //                            ProductNavigation = products[0],
+        //                            Quantity = 3,
+        //                            UnitCost = products[0].CurrentPrice
+        //                        },
+        //                        new OrderDetail()
+        //                        {
+        //                            ProductNavigation = products[1],
+        //                            Quantity = 2,
+        //                            UnitCost = products[1].CurrentPrice
+        //                        },
+        //                        new OrderDetail()
+        //                        {
+        //                            ProductNavigation = products[2],
+        //                            Quantity = 5,
+        //                            UnitCost = products[3].CurrentPrice
+        //                        },
+        //                    }
+        //                }
+        //            },
+        //            ShoppingCartRecords = new List<ShoppingCartRecord>
+        //            {
+        //                new ShoppingCartRecord
+        //                {
+        //                    DateCreated = DateTime.Now,
+        //                    ProductNavigation = products[3],
+        //                    Quantity = 1,
+        //                    LineItemTotal = products[3].CurrentPrice
+        //                }
+        //            }
+        //        }    
+        //    };
+
         public static IEnumerable<Customer> GetAllCustomerRecords(IList<Product> products) =>
             new List<Customer>
             {
@@ -78,38 +128,40 @@ namespace SpyStore.Dal.Initialization
                             ShipDate = DateTime.Now.Subtract(new TimeSpan(5, 0, 0, 0)),
                             OrderDetails = new List<OrderDetail>
                             {
-                                new OrderDetail()
+                                new OrderDetail() 
                                 {
                                     ProductNavigation = products[0],
                                     Quantity = 3,
                                     UnitCost = products[0].CurrentPrice
                                 },
-                                new OrderDetail()
+                                new OrderDetail() 
                                 {
                                     ProductNavigation = products[1],
                                     Quantity = 2,
                                     UnitCost = products[1].CurrentPrice
                                 },
-                                new OrderDetail()
+                                new OrderDetail() 
                                 {
                                     ProductNavigation = products[2],
                                     Quantity = 5,
-                                    UnitCost = products[3].CurrentPrice
+                                    UnitCost = products[2].CurrentPrice//3
                                 },
                             }
                         }
                     },
+
                     ShoppingCartRecords = new List<ShoppingCartRecord>
                     {
                         new ShoppingCartRecord
                         {
-                            DateCreated = DateTime.Now,
-                            ProductNavigation = products[3],
-                            Quantity = 1,
-                            LineItemTotal = products[3].CurrentPrice
+                        DateCreated = DateTime.Now,
+                        ProductNavigation = products[3],
+                        Quantity = 1,
+                        LineItemTotal = products[3].CurrentPrice
                         }
-                    }
-                }    
+                    },
+    
+                } 
             };
     }
 }
