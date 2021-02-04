@@ -64,7 +64,7 @@ namespace SpyStore.Dal.EfStructures.Migrations
                         .IsUnique()
                         .HasName("IX_Customers");
 
-                    b.ToTable("Costumers","Store");
+                    b.ToTable("Customers","Store");
                 });
 
             modelBuilder.Entity("SpyStore.Models.Entities.Order", b =>

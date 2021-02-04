@@ -18,7 +18,7 @@ namespace SpyStore.Dal.Initialization
 
         internal static void ResetIdentity(StoreContext context)
         {
-            var tables = new[] { "Categories", "Costumers", "OrderDetails", "Orders", "Products", "ShoppingCartRecords" };
+            var tables = new[] { "Categories", "Customers", "OrderDetails", "Orders", "Products", "ShoppingCartRecords" };
             foreach (var itm in tables)
             {
                 var rawSqlString = $"DBCC CHECKIDENT (\"Store.{itm}\", RESEED, 0);";
@@ -32,7 +32,7 @@ namespace SpyStore.Dal.Initialization
         public static void ClearData(StoreContext context)
         {            
             context.Database.ExecuteSqlCommand("Delete from Store.Categories");
-            context.Database.ExecuteSqlCommand("Delete from Store.Costumers");
+            context.Database.ExecuteSqlCommand("Delete from Store.Customers");
             ResetIdentity(context);
         }
 

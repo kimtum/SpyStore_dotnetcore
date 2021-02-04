@@ -8,7 +8,7 @@ using SpyStore.Models.Entities.Base;
 
 namespace SpyStore.Models.Entities
 {
-    [Table("Costumers", Schema = "Store")]
+    [Table("Customers", Schema = "Store")]
     public class Customer : EntityBase
     {
         [DataType(DataType.Text), MaxLength(50), Display(Name = "Full Name")]

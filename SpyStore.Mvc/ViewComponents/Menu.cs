@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using SpyStore.Mvc.Support;
+
+namespace SpyStore.Mvc.ViewComponents
+{
+    //The runtime searches for the view in the following paths:
+    //    Views/<controller_name>/Components/<view_component_name>/<view_name>
+    //    Views/Shared/Components/<view_component_name>/<view_name>
+    //    /Pages/Shared/Components/<View Component Name>/<View Name>
+    public class Menu : ViewComponent
+    {
+        private readonly SpyStoreServiceWrapper _serviceWrapper;
+
+        public Menu(SpyStoreServiceWrapper serviceWrapper)
+        {
+            _serviceWrapper = serviceWrapper;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var cats = await _serviceWrapper.GetCategoriesAsync();
+            if (cats == null)
+            {
+                return new ContentViewComponentResult("There was an error getting the categories");
+            }
+
+            return View("MenuView", cats);
+        }
+    }
+}
